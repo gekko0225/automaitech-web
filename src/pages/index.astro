@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const whatsapp = 'https://wa.me/573189862259?text=Hola%2C%20quiero%20revisar%20el%20sistema%20de%20captaci%C3%B3n%20y%20agendamiento%20para%20mi%20negocio.';
+const calendly = 'https://calendly.com/automaitech/30min';
+
+const problems = [
+  ['01', 'Los mensajes llegan mientras estás atendiendo', 'Cuando vuelves a responder, el prospecto ya pidió información en otro lugar.'],
+  ['02', 'Tu equipo repite lo mismo todos los días', 'Precios, servicios, horarios y disponibilidad consumen horas que deberían ir a la atención.'],
+  ['03', 'Hay interés, pero no siempre termina en cita', 'Las conversaciones se enfrían porque no existe un camino claro desde la consulta hasta la reserva.'],
+  ['04', 'La agenda vive repartida en varios lugares', 'Chats, notas y calendarios separados provocan cruces, olvidos y oportunidades perdidas.'],
+];
+
+const steps = [
+  ['01', 'El prospecto llega', 'Desde Instagram, anuncios, tu página web o una recomendación.'],
+  ['02', 'Recibe orientación', 'Conoce servicios, precios iniciales y respuestas a sus preguntas frecuentes.'],
+  ['03', 'Encuentra su horario', 'Consulta disponibilidad y elige el momento que mejor le funciona.'],
+  ['04', 'La cita queda confirmada', 'La reserva se registra y tu equipo recibe la información organizada.'],
+];
+
+const features = [
+  ['spark', 'Atención inicial automática', 'Respuestas rápidas y consistentes, incluso cuando tu equipo está ocupado.'],
+  ['list', 'Servicios organizados', 'Un catálogo claro para orientar a cada persona hacia el tratamiento o servicio adecuado.'],
+  ['calendar', 'Agenda conectada', 'Disponibilidad real para que el prospecto pueda reservar sin intercambiar diez mensajes.'],
+  ['users', 'Registro de prospectos', 'Información centralizada para saber quién preguntó, qué necesita y en qué quedó.'],
+  ['bell', 'Confirmaciones y seguimiento', 'Mensajes para acompañar la reserva y reducir conversaciones que quedan a medias.'],
+  ['settings', 'Implementación personalizada', 'Configuramos el sistema según tu operación, tus horarios y la forma en que atiendes.'],
+];
+
+const faqs = [
+  ['¿Esto reemplaza a mi equipo?', 'No. El sistema se encarga de la atención inicial y de las tareas repetitivas. Tu equipo conserva las conversaciones que requieren criterio, asesoría o atención humana.'],
+  ['¿Puedo seguir usando WhatsApp e Instagram?', 'Sí. El objetivo es mejorar el recorrido que ya usan tus clientes, no obligarte a cambiar de canal. Durante la llamada revisamos cuáles integraciones se ajustan a tu operación.'],
+  ['¿Sirve si ya utilizo una agenda digital?', 'Sí. Primero revisamos tu herramienta actual y definimos si conviene conectarla, reorganizarla o mantenerla como está. No añadimos software sin necesidad.'],
+  ['¿Necesito saber de tecnología?', 'No. Entregamos el sistema configurado, documentado y con capacitación para que tu equipo pueda usarlo desde el primer día.'],
+  ['¿Cuánto tarda la implementación?', 'Depende de los servicios, reglas de agenda e integraciones necesarias. Después de la llamada inicial recibirás un alcance y un tiempo de implementación claros.'],
+];
+---
+
+<BaseLayout title="Automaitech | Más consultas convertidas en citas" description="Sistema de captación y agendamiento para centros de estética, belleza y clínicas. Convierte consultas de WhatsApp e Instagram en citas confirmadas.">
+  <header class="site-header" data-header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="Automaitech inicio"><span class="brand-dot"></span>Automaitech</a>
+      <button class="menu-button" data-menu-button aria-expanded="false" aria-label="Abrir menú"><span></span><span></span></button>
+      <nav class="nav" data-menu aria-label="Navegación principal">
+        <a href="#problema">El problema</a><a href="#como-funciona">Cómo funciona</a><a href="#incluye">Qué incluye</a><a href="#preguntas">Preguntas</a>
+        <a class="button button-small" href={calendly} target="_blank" rel="noreferrer">Agendar llamada</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero grid-bg" id="inicio">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span> Para estética, belleza y clínicas</div>
+          <h1>Convierte consultas en <em>citas confirmadas.</em></h1>
+          <p class="hero-lead">Implementamos un sistema que atiende los primeros mensajes, orienta a cada prospecto y lo guía hasta reservar, sin depender de respuestas manuales en cada conversación.</p>
+          <div class="actions">
+            <a class="button" href={calendly} target="_blank" rel="noreferrer">Revisar mi proceso <span>→</span></a>
+            <a class="text-link" href={whatsapp} target="_blank" rel="noreferrer"><span class="wa-dot">●</span> Hablar por WhatsApp</a>
+          </div>
+          <div class="hero-notes"><span>✓ Implementación completa</span><span>✓ Adaptado a tu operación</span><span>✓ Capacitación incluida</span></div>
+        </div>
+
+        <div class="system-demo" aria-label="Demostración del sistema de agendamiento">
+          <div class="demo-top"><div><span class="avatar">AM</span><strong>Asistente Automaitech</strong><small>En línea · Respuesta inmediata</small></div><span class="live">Activo</span></div>
+          <div class="chat">
+            <div class="message incoming"><small>Nuevo prospecto · Instagram</small>Hola, quisiera saber sobre la limpieza facial.</div>
+            <div class="message outgoing">¡Hola! Claro. Tenemos limpieza profunda y limpieza premium. ¿Quieres conocer las diferencias?</div>
+            <div class="message incoming short">Sí, y quisiera agendar esta semana.</div>
+            <div class="booking-card"><div class="booking-icon">✓</div><div><small>CITA CONFIRMADA</small><strong>Limpieza facial premium</strong><span>Martes, 10:30 a. m. · Laura M.</span></div></div>
+          </div>
+          <div class="demo-footer"><span><i></i> Prospecto registrado</span><span><i></i> Agenda actualizada</span></div>
+        </div>
+      </div>
+      <div class="trust-row container"><span>Pensado para</span><strong>Centros de estética</strong><strong>Clínicas</strong><strong>Spas</strong><strong>Salones de belleza</strong><strong>Consultorios</strong></div>
+    </section>
+
+    <section class="section problem-section" id="problema">
+      <div class="container">
+        <div class="section-intro split"><div><div class="eyebrow">El verdadero cuello de botella</div><h2>No faltan consultas.<br/><em>Falta convertirlas mejor.</em></h2></div><p>Cuando cada conversación depende de una respuesta manual, las oportunidades se enfrían y la atención diaria se vuelve más pesada.</p></div>
+        <div class="problem-grid">{problems.map(([n, title, text]) => <article class="problem-card"><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <div class="insight"><span class="insight-icon">↗</span><p><strong>La oportunidad ya está llegando.</strong> El sistema reduce la fricción entre “quiero información” y “quiero reservar”.</p></div>
+      </div>
+    </section>
+
+    <section class="section process-section grid-bg" id="como-funciona">
+      <div class="container">
+        <div class="section-intro centered"><div class="eyebrow">Un recorrido simple</div><h2>Del primer mensaje a una<br/><em>cita lista para atender.</em></h2><p>Diseñamos un flujo claro para que el prospecto avance sin esperas innecesarias y tu equipo reciba cada reserva organizada.</p></div>
+        <div class="process-grid">{steps.map(([n, title, text], i) => <article class="process-step"><div class="step-number">{n}</div><div class="step-icon">{i === 0 ? '↙' : i === 1 ? '✦' : i === 2 ? '□' : '✓'}</div><h3>{title}</h3><p>{text}</p>{i < 3 && <span class="connector">→</span>}</article>)}</div>
+        <div class="process-result"><span>Resultado</span><strong>Menos mensajes repetidos. Más conversaciones que terminan en reserva.</strong></div>
+      </div>
+    </section>
+
+    <section class="section features-section" id="incluye">
+      <div class="container features-layout">
+        <div class="features-copy"><div class="eyebrow">Qué implementamos</div><h2>Un sistema completo,<br/><em>no otra herramienta suelta.</em></h2><p>Partimos de la forma en que ya trabaja tu negocio y conectamos las piezas necesarias para captar, orientar y agendar mejor.</p><a class="text-link blue" href={calendly} target="_blank" rel="noreferrer">Ver si encaja en mi negocio →</a></div>
+        <div class="features-grid">{features.map(([icon, title, text]) => <article class="feature-card"><span class={`feature-icon ${icon}`}>✦</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+      </div>
+    </section>
+
+    <section class="section niche-section">
+      <div class="container niche-card">
+        <div class="niche-copy"><div class="eyebrow light">Construido para negocios con agenda</div><h2>Tu operación tiene reglas propias.<br/><em>El sistema también.</em></h2><p>No es lo mismo agendar una valoración, un tratamiento de dos horas o un servicio con un profesional específico. Configuramos el flujo alrededor de tu realidad.</p><div class="niche-tags"><span>Estética facial y corporal</span><span>Medicina estética</span><span>Belleza y bienestar</span><span>Clínicas y consultorios</span></div></div>
+        <div class="schedule-card"><div class="schedule-head"><strong>Agenda de hoy</strong><span>8 citas</span></div><div class="date-strip"><span>LUN<small>13</small></span><span class="active">MAR<small>14</small></span><span>MIÉ<small>15</small></span><span>JUE<small>16</small></span><span>VIE<small>17</small></span></div><div class="appointment"><time>9:00</time><div><strong>Valoración inicial</strong><span>Mariana R. · Confirmada</span></div><i></i></div><div class="appointment blue-appt"><time>10:30</time><div><strong>Limpieza facial premium</strong><span>Laura M. · Confirmada</span></div><i></i></div><div class="appointment"><time>12:00</time><div><strong>Control de tratamiento</strong><span>Daniela P. · Confirmada</span></div><i></i></div></div>
+      </div>
+    </section>
+
+    <section class="section delivery-section">
+      <div class="container"><div class="section-intro centered"><div class="eyebrow">De la idea al sistema funcionando</div><h2>Nos encargamos de ponerlo<br/><em>en marcha contigo.</em></h2></div><div class="delivery-grid"><article><span>01</span><h3>Entendemos tu proceso</h3><p>Servicios, horarios, canales, preguntas frecuentes y reglas de atención.</p></article><article><span>02</span><h3>Diseñamos el recorrido</h3><p>Definimos cómo debe avanzar un prospecto desde que pregunta hasta que reserva.</p></article><article><span>03</span><h3>Configuramos e integramos</h3><p>Construimos el sistema y conectamos las herramientas que realmente necesitas.</p></article><article><span>04</span><h3>Capacitamos y optimizamos</h3><p>Tu equipo aprende a utilizarlo y acompañamos los primeros ajustes.</p></article></div></div>
+    </section>
+
+    <section class="section faq-section" id="preguntas"><div class="container faq-layout"><div class="faq-title"><div class="eyebrow">Preguntas frecuentes</div><h2>Todo claro antes<br/>de empezar.</h2><p>Si tu caso tiene alguna particularidad, la revisamos en una llamada breve y sin compromiso.</p><a class="text-link blue" href={whatsapp} target="_blank" rel="noreferrer">Resolver otra duda →</a></div><div class="faq-list">{faqs.map(([q, a], i) => <details open={i === 0}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></div></section>
+
+    <section class="cta-section grid-bg"><div class="cta-glow"></div><div class="container cta-content"><div class="eyebrow">Primera conversación · 30 minutos</div><h2>Descubre dónde se están perdiendo<br/><em>tus próximas citas.</em></h2><p>Revisamos tu proceso actual y te mostramos cómo podría funcionar un sistema de captación y agendamiento en tu negocio.</p><div class="actions center"><a class="button" href={calendly} target="_blank" rel="noreferrer">Agendar una llamada gratuita <span>→</span></a><a class="text-link" href={whatsapp} target="_blank" rel="noreferrer"><span class="wa-dot">●</span> Prefiero WhatsApp</a></div><small>Sin compromiso · Conversación directa · Enfoque práctico</small></div></section>
+  </main>
+
+  <footer><div class="container footer-grid"><div><a class="brand" href="#inicio"><span class="brand-dot"></span>Automaitech</a><p>Sistemas de captación y agendamiento para negocios que trabajan con atención y citas.</p></div><div><strong>Navegación</strong><a href="#problema">El problema</a><a href="#como-funciona">Cómo funciona</a><a href="#incluye">Qué incluye</a></div><div><strong>Contacto</strong><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a href={calendly} target="_blank" rel="noreferrer">Agendar llamada</a><a href="mailto:hola@automaitech.com">hola@automaitech.com</a></div></div><div class="container footer-bottom"><span>© 2026 Automaitech. Todos los derechos reservados.</span><a href="/privacidad">Política de privacidad</a></div></footer>
+</BaseLayout>

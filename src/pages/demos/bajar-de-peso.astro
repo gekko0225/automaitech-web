@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DemoExperience from '../../components/DemoExperience.astro';
+const services = [
+  { name:'Valoración nutricional', detail:'Conoce tu punto de partida', duration:'45 min', price:'Desde $90.000', icon:'✦' },
+  { name:'Programa de hábitos', detail:'Acompañamiento personalizado', duration:'50 min', price:'Según valoración', icon:'◎' },
+  { name:'Control de progreso', detail:'Seguimiento y ajustes del plan', duration:'30 min', price:'Desde $65.000', icon:'↗' },
+  { name:'Valoración corporal', detail:'Medición y objetivos realistas', duration:'40 min', price:'Desde $80.000', icon:'◇' },
+];
+---
+<BaseLayout title="Demo de captación para valoración de peso | Automaitech" description="Simulación interactiva de captación y agendamiento para una clínica de nutrición y bienestar." robots="noindex, follow">
+  <DemoExperience business="Vita Balance" category="Nutrición y bienestar" accent="#e26d3f" accentSoft="#fff0e9" welcome="¡Hola! Soy el asistente de Vita Balance. Puedo orientarte sobre nuestros servicios y ayudarte a reservar una valoración." {services} goals={['Mejorar mis hábitos','Recibir acompañamiento profesional','Hacer seguimiento a mi progreso']} />
+</BaseLayout>

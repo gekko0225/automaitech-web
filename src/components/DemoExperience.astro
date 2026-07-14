@@ -1,0 +1,126 @@
+---
+import '../styles/demo.css';
+
+interface Service { name: string; detail: string; duration: string; price: string; icon: string }
+interface Props {
+  business: string;
+  category: string;
+  accent: string;
+  accentSoft: string;
+  welcome: string;
+  services: Service[];
+  goals: string[];
+}
+
+const { business, category, accent, accentSoft, welcome, services, goals } = Astro.props;
+const config = { business, category, accent, accentSoft, welcome, services, goals };
+---
+
+<div class="demo-page" style={`--demo-accent:${accent};--demo-soft:${accentSoft}`} data-demo-root data-config={JSON.stringify(config)}>
+  <header class="demo-site-header">
+    <a class="demo-automaitech" href="/"><span></span>Automaitech</a>
+    <div class="demo-label"><i></i> Demostración interactiva</div>
+    <a class="demo-exit" href="/">Salir de la demo <span>×</span></a>
+  </header>
+
+  <main class="demo-stage">
+    <section class="demo-context">
+      <div class="demo-kicker">Así lo viviría tu cliente</div>
+      <h1>De una consulta a una<br/><em>cita confirmada.</em></h1>
+      <p>Explora una simulación del menú de captación y agendamiento. Ninguna respuesta se guarda ni se envía.</p>
+      <div class="demo-benefits">
+        <span><i>✓</i> Orientación inmediata</span>
+        <span><i>✓</i> Servicios y precios claros</span>
+        <span><i>✓</i> Reserva sin esperas</span>
+      </div>
+      <div class="demo-steps"><span class="active">1</span><b></b><span>2</span><b></b><span>3</span><b></b><span>4</span></div>
+      <small>El flujo se adapta a los servicios, reglas y horarios reales de cada negocio.</small>
+    </section>
+
+    <section class="phone-shell" aria-label={`Demo de agendamiento para ${business}`}>
+      <div class="phone-top"><span></span><i></i><i></i></div>
+      <div class="chat-header">
+        <div class="chat-avatar">{business.slice(0, 2).toUpperCase()}</div>
+        <div><strong>{business}</strong><small><i></i> En línea · Respuesta inmediata</small></div>
+        <button type="button" aria-label="Reiniciar demo" data-reset>↻</button>
+      </div>
+      <div class="chat-body" data-chat aria-live="polite">
+        <div class="chat-date">HOY</div>
+        <div class="bot-row initial-message"><span class="mini-avatar">✦</span><div class="bubble bot"><p>{welcome}</p><time>Ahora</time></div></div>
+        <div class="bot-row initial-message"><span class="mini-avatar">✦</span><div class="bubble bot"><p>¿En qué servicio tienes interés?</p><time>Ahora</time></div></div>
+        <div class="quick-options initial-options" data-services>
+          {services.map((service, i) => <button type="button" data-service={i}><span>{service.icon}</span><div><strong>{service.name}</strong><small>{service.detail}</small></div><b>›</b></button>)}
+        </div>
+      </div>
+      <div class="chat-input"><span>Escribe un mensaje...</span><button type="button" aria-label="Enviar">➤</button></div>
+      <div class="phone-home"></div>
+    </section>
+  </main>
+
+  <aside class="demo-disclaimer"><span>i</span><p><strong>Esta es una simulación.</strong> No ingreses datos personales. Las respuestas no se almacenan ni generan una reserva real.</p></aside>
+</div>
+
+<script>
+  // @ts-nocheck — script aislado de la simulación; no transmite datos.
+  const root = document.querySelector('[data-demo-root]');
+  if (root instanceof HTMLElement) {
+    const config = JSON.parse(root.dataset.config || '{}');
+    const chat = root.querySelector('[data-chat]');
+    const steps = [...root.querySelectorAll('.demo-steps span')];
+    let selectedService;
+
+    const scrollChat = () => { if (chat) chat.scrollTo({ top: chat.scrollHeight, behavior: 'smooth' }); };
+    const wait = (ms = 420) => new Promise((resolve) => setTimeout(resolve, ms));
+    const time = () => new Date().toLocaleTimeString('es-CO', { hour: 'numeric', minute: '2-digit' });
+    const activateStep = (n) => steps.forEach((step, i) => step.classList.toggle('active', i <= n - 1));
+
+    const addUser = (text) => {
+      const row = document.createElement('div'); row.className = 'user-row';
+      row.innerHTML = `<div class="bubble user"><p></p><time>${time()}</time></div>`;
+      row.querySelector('p').textContent = text; chat?.append(row); scrollChat();
+    };
+    const addBot = async (text) => {
+      const typing = document.createElement('div'); typing.className = 'bot-row typing-row';
+      typing.innerHTML = '<span class="mini-avatar">✦</span><div class="bubble bot typing"><i></i><i></i><i></i></div>'; chat?.append(typing); scrollChat();
+      await wait(); typing.remove();
+      const row = document.createElement('div'); row.className = 'bot-row';
+      row.innerHTML = `<span class="mini-avatar">✦</span><div class="bubble bot"><p></p><time>${time()}</time></div>`;
+      row.querySelector('p').textContent = text; chat?.append(row); scrollChat();
+    };
+    const addOptions = (items, handler) => {
+      const wrap = document.createElement('div'); wrap.className = 'text-options';
+      items.forEach((item) => { const button = document.createElement('button'); button.type = 'button'; button.textContent = item; button.addEventListener('click', () => { wrap.remove(); handler(item); }); wrap.append(button); });
+      chat?.append(wrap); scrollChat();
+    };
+    const showServiceSummary = async () => {
+      activateStep(3);
+      await addBot('Perfecto. Esta es la opción recomendada para continuar:');
+      const card = document.createElement('div'); card.className = 'service-summary';
+      card.innerHTML = `<div class="summary-icon">${selectedService.icon}</div><div><small>SERVICIO SELECCIONADO</small><strong></strong><span></span></div><button type="button">Ver horarios disponibles →</button>`;
+      card.querySelector('strong').textContent = selectedService.name;
+      card.querySelector('span').textContent = `${selectedService.duration} · ${selectedService.price}`;
+      card.querySelector('button').addEventListener('click', showSchedule); chat?.append(card); scrollChat();
+    };
+    const showSchedule = async () => {
+      chat?.querySelector('.service-summary button')?.remove(); activateStep(4);
+      await addBot('Tengo estos horarios disponibles. Elige el que prefieras:');
+      const schedule = document.createElement('div'); schedule.className = 'schedule-options';
+      ['Mañana · 10:30 a. m.', 'Mañana · 3:00 p. m.', 'Jueves · 11:00 a. m.'].forEach((slot) => { const button = document.createElement('button'); button.type = 'button'; button.textContent = slot; button.addEventListener('click', () => confirmSlot(slot, schedule)); schedule.append(button); });
+      chat?.append(schedule); scrollChat();
+    };
+    const confirmSlot = async (slot, schedule) => {
+      schedule.remove(); addUser(slot); await addBot('¡Listo! En un sistema real solicitaríamos los datos mínimos y enviaríamos la confirmación y recordatorios.');
+      const confirmed = document.createElement('div'); confirmed.className = 'confirmed-card';
+      confirmed.innerHTML = `<div>✓</div><small>CITA DE DEMOSTRACIÓN</small><strong></strong><span></span><em>El prospecto queda registrado y la agenda se actualiza.</em>`;
+      confirmed.querySelector('strong').textContent = selectedService.name; confirmed.querySelector('span').textContent = slot; chat?.append(confirmed); scrollChat();
+    };
+    const handleService = async (index) => {
+      selectedService = config.services[index]; root.querySelector('.initial-options')?.remove(); addUser(selectedService.name); activateStep(2);
+      await addBot(`Excelente elección. Para orientarte mejor, ¿qué te gustaría lograr con ${selectedService.name.toLowerCase()}?`);
+      addOptions(config.goals, async (goal) => { addUser(goal); await addBot('¿Es tu primera vez con este tipo de servicio?'); addOptions(['Sí, es mi primera vez', 'No, ya lo he realizado'], async (answer) => { addUser(answer); await showServiceSummary(); }); });
+    };
+
+    root.querySelectorAll('[data-service]').forEach((button) => button.addEventListener('click', () => handleService(Number(button.dataset.service))));
+    root.querySelector('[data-reset]')?.addEventListener('click', () => location.reload());
+  }
+</script>

@@ -1,6 +1,119 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/legal.css';
 ---
-<BaseLayout title="Política de privacidad | Automaitech" description="Política de privacidad de Automaitech.">
-  <main class="legal container"><a class="brand" href="/"><span class="brand-dot"></span>Automaitech</a><h1>Política de privacidad</h1><p>Esta página queda preparada para incorporar la política de tratamiento de datos personales de Automaitech antes de publicar el sitio.</p><a class="text-link blue" href="/">← Volver al inicio</a></main>
+<BaseLayout title="Política de privacidad | Automaitech" description="Política de privacidad y tratamiento de datos personales de Automaitech.">
+  <header class="legal-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/"><span class="brand-dot"></span>Automaitech</a>
+      <a class="text-link blue" href="/">Volver al inicio →</a>
+    </div>
+  </header>
+
+  <main class="legal-page">
+    <div class="container legal-grid">
+      <aside class="legal-index">
+        <span>Documento</span>
+        <strong>Política de privacidad y tratamiento de datos</strong>
+        <small>Última actualización: 14 de julio de 2026</small>
+        <nav aria-label="Contenido de la política">
+          <a href="#responsable">1. Responsable</a>
+          <a href="#informacion">2. Información tratada</a>
+          <a href="#finalidades">3. Finalidades</a>
+          <a href="#derechos">4. Derechos</a>
+          <a href="#procedimiento">5. Consultas y reclamos</a>
+          <a href="#seguridad">6. Seguridad y terceros</a>
+          <a href="#cookies">7. Cookies</a>
+          <a href="#vigencia">8. Vigencia</a>
+        </nav>
+      </aside>
+
+      <article class="legal-content">
+        <div class="eyebrow">Transparencia y confianza</div>
+        <h1>Política de privacidad y tratamiento de datos personales</h1>
+        <p class="legal-lead">Esta política explica cómo Automaitech recolecta, utiliza, almacena y protege la información personal de quienes visitan el sitio, solicitan información o contratan sus servicios.</p>
+
+        <section id="marco">
+          <h2>Marco aplicable</h2>
+          <p>El tratamiento de datos personales se realiza conforme a la Constitución Política de Colombia, la Ley 1581 de 2012, el Decreto 1074 de 2015 y las demás normas que los modifiquen, complementen o sustituyan.</p>
+          <p>Al suministrar información mediante formularios, correo, WhatsApp, Calendly u otros canales habilitados, el titular declara que la información es veraz y autoriza su tratamiento para las finalidades informadas, cuando dicha autorización sea requerida.</p>
+        </section>
+
+        <section id="responsable">
+          <span class="legal-number">01</span><h2>Responsable del tratamiento</h2>
+          <div class="legal-data">
+            <div><small>Nombre comercial</small><strong>Automaitech</strong></div>
+            <div><small>Sitio web</small><strong>automaitech.com</strong></div>
+            <div><small>Correo de privacidad</small><a href="mailto:hola@automaitech.com">hola@automaitech.com</a></div>
+            <div><small>País de operación</small><strong>Colombia</strong></div>
+          </div>
+        </section>
+
+        <section id="informacion">
+          <span class="legal-number">02</span><h2>Información que podemos tratar</h2>
+          <p>Según la forma de interacción, podemos tratar:</p>
+          <ul>
+            <li>Datos de identificación y contacto, como nombre, empresa, correo electrónico y teléfono.</li>
+            <li>Información suministrada durante diagnósticos, reuniones, solicitudes de propuesta o soporte.</li>
+            <li>Datos relacionados con el negocio, sus procesos y necesidades operativas.</li>
+            <li>Información técnica básica de navegación, como dispositivo, navegador, dirección IP, páginas visitadas y eventos de uso, cuando se habiliten herramientas de analítica.</li>
+            <li>Registros de comunicaciones realizadas por correo, WhatsApp, formularios o plataformas de agendamiento.</li>
+          </ul>
+          <div class="legal-note"><strong>No solicitamos datos sensibles innecesarios.</strong> Las demos del sitio son simulaciones y no deben utilizarse para enviar información médica, financiera ni confidencial.</div>
+        </section>
+
+        <section id="finalidades">
+          <span class="legal-number">03</span><h2>Finalidades del tratamiento</h2>
+          <ul>
+            <li>Responder solicitudes de información y mantener comunicaciones comerciales solicitadas.</li>
+            <li>Agendar llamadas, reuniones, diagnósticos y demostraciones.</li>
+            <li>Preparar propuestas, prestar los servicios contratados y brindar soporte.</li>
+            <li>Analizar y mejorar la experiencia del sitio y la calidad de los servicios.</li>
+            <li>Gestionar relaciones con clientes, prospectos, proveedores y aliados.</li>
+            <li>Cumplir obligaciones legales, contractuales, contables y de seguridad.</li>
+            <li>Enviar contenidos o comunicaciones comerciales cuando exista autorización o una relación legítima que lo permita. El titular podrá solicitar su retiro en cualquier momento.</li>
+          </ul>
+        </section>
+
+        <section id="derechos">
+          <span class="legal-number">04</span><h2>Derechos de los titulares</h2>
+          <p>El titular puede ejercer los derechos reconocidos por la legislación colombiana, entre ellos:</p>
+          <ul>
+            <li>Conocer, actualizar y rectificar sus datos personales.</li>
+            <li>Solicitar prueba de la autorización otorgada, cuando corresponda.</li>
+            <li>Ser informado sobre el uso dado a sus datos.</li>
+            <li>Presentar quejas ante la Superintendencia de Industria y Comercio después de agotar el trámite correspondiente ante Automaitech.</li>
+            <li>Revocar la autorización o solicitar la supresión del dato cuando sea procedente.</li>
+            <li>Acceder gratuitamente a sus datos personales objeto de tratamiento.</li>
+          </ul>
+        </section>
+
+        <section id="procedimiento">
+          <span class="legal-number">05</span><h2>Consultas, solicitudes y reclamos</h2>
+          <p>Para ejercer sus derechos, el titular puede escribir a <a href="mailto:hola@automaitech.com">hola@automaitech.com</a> con el asunto “Protección de datos personales”. La solicitud debe incluir nombre, medio de respuesta, descripción clara de la petición y, cuando sea necesario, documentos que permitan acreditar la identidad o representación.</p>
+          <p>Las consultas y reclamos serán atendidos dentro de los plazos establecidos por la legislación vigente. Si la solicitud está incompleta, podremos requerir la información necesaria para gestionarla.</p>
+        </section>
+
+        <section id="seguridad">
+          <span class="legal-number">06</span><h2>Seguridad, conservación y terceros</h2>
+          <p>Automaitech adopta medidas razonables de carácter técnico, humano y administrativo para proteger los datos contra acceso, pérdida, uso o divulgación no autorizada. Ningún sistema ofrece seguridad absoluta, por lo que estas medidas se revisan y mejoran de acuerdo con los riesgos identificados.</p>
+          <p>Los datos se conservarán durante el tiempo necesario para cumplir las finalidades informadas, atender obligaciones contractuales o legales y resolver posibles reclamaciones.</p>
+          <p>Podemos utilizar proveedores tecnológicos para alojamiento, correo, analítica, reuniones, calendarios, automatización y soporte. Estos proveedores tratarán la información necesaria para prestar sus servicios y podrán operar desde otros países bajo sus propios términos y medidas de protección.</p>
+        </section>
+
+        <section id="cookies">
+          <span class="legal-number">07</span><h2>Cookies y enlaces externos</h2>
+          <p>El sitio puede utilizar cookies estrictamente necesarias y, cuando se habiliten, herramientas de medición para comprender su funcionamiento. El usuario puede administrar las cookies desde su navegador.</p>
+          <p>Los enlaces a WhatsApp, Calendly, redes sociales u otros servicios conducen a plataformas de terceros. El tratamiento realizado por esas plataformas se rige por sus propias políticas de privacidad.</p>
+        </section>
+
+        <section id="vigencia">
+          <span class="legal-number">08</span><h2>Vigencia y cambios</h2>
+          <p>Esta política rige desde el 14 de julio de 2026. Podrá actualizarse para reflejar cambios legales, técnicos u operativos. La versión vigente estará disponible permanentemente en esta página.</p>
+        </section>
+
+        <div class="legal-closing"><strong>¿Tienes una pregunta sobre tus datos?</strong><p>Escríbenos y te responderemos por el canal indicado.</p><a class="button" href="mailto:hola@automaitech.com">Contactar a Automaitech →</a></div>
+      </article>
+    </div>
+  </main>
 </BaseLayout>

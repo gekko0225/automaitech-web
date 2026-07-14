@@ -90,6 +90,7 @@ const faqs = [
         <div class="section-intro centered"><div class="eyebrow">Un recorrido simple</div><h2>Del primer mensaje a una<br/><em>cita lista para atender.</em></h2><p>Diseñamos un flujo claro para que el prospecto avance sin esperas innecesarias y tu equipo reciba cada reserva organizada.</p></div>
         <div class="process-grid">{steps.map(([n, title, text], i) => <article class="process-step"><div class="step-number">{n}</div><div class="step-icon">{i === 0 ? '↙' : i === 1 ? '✦' : i === 2 ? '□' : '✓'}</div><h3>{title}</h3><p>{text}</p>{i < 3 && <span class="connector">→</span>}</article>)}</div>
         <div class="process-result"><span>Resultado</span><strong>Menos mensajes repetidos. Más conversaciones que terminan en reserva.</strong></div>
+        <div style="text-align:center;margin-top:28px"><a class="text-link blue" href="/demos/estetica">Probar una demo interactiva →</a></div>
       </div>
     </section>
 

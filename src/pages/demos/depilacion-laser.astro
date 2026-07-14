@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DemoExperience from '../../components/DemoExperience.astro';
+const services = [
+  { name:'Axilas', detail:'Sesión rápida y personalizada', duration:'20 min', price:'Desde $65.000', icon:'✦' },
+  { name:'Piernas completas', detail:'Valoración de piel incluida', duration:'60 min', price:'Desde $180.000', icon:'⌁' },
+  { name:'Bikini', detail:'Atención profesional y privada', duration:'30 min', price:'Desde $95.000', icon:'◇' },
+  { name:'Rostro', detail:'Según zona y tipo de piel', duration:'25 min', price:'Desde $55.000', icon:'○' },
+];
+---
+<BaseLayout title="Demo de captación para depilación láser | Automaitech" description="Simulación interactiva de captación y agendamiento para un centro de depilación láser." robots="noindex, follow">
+  <DemoExperience business="Lúmina Láser" category="Depilación láser" accent="#7c4dff" accentSoft="#f0ebff" welcome="¡Hola! Soy el asistente virtual de Lúmina Láser. Te ayudaré a encontrar el tratamiento ideal y reservar tu cita." {services} goals={['Reducir el crecimiento del vello','Evitar irritación por afeitado','Prepararme para una ocasión especial']} />
+</BaseLayout>

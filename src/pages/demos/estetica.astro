@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DemoExperience from '../../components/DemoExperience.astro';
+const services = [
+  { name:'Limpieza facial profunda', detail:'Diagnóstico y extracción cuidadosa', duration:'75 min', price:'Desde $120.000', icon:'✦' },
+  { name:'Hidratación facial', detail:'Recupera luminosidad y suavidad', duration:'60 min', price:'Desde $110.000', icon:'◌' },
+  { name:'Moldeo corporal', detail:'Plan personalizado por zonas', duration:'50 min', price:'Desde $95.000', icon:'⌁' },
+  { name:'Cejas y pestañas', detail:'Diseño según tus facciones', duration:'45 min', price:'Desde $70.000', icon:'◇' },
+];
+---
+<BaseLayout title="Demo de captación para centros de estética | Automaitech" description="Simulación interactiva de captación y agendamiento para un centro de estética." robots="noindex, follow">
+  <DemoExperience business="Aura Estética" category="Estética facial y corporal" accent="#087f8c" accentSoft="#e4f7f7" welcome="¡Hola! Bienvenida a Aura Estética. En pocos pasos te ayudaré a elegir el servicio indicado y encontrar un horario." {services} goals={['Mejorar la apariencia de mi piel','Relajarme y consentirme','Prepararme para un evento']} />
+</BaseLayout>
